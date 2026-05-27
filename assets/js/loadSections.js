@@ -4,10 +4,16 @@ async function loadSection(id, file) {
     document.getElementById(id).innerHTML = data;
 }
 
-loadSection("home", "sections/home.html");
-loadSection("about", "sections/about.html");
-loadSection("skills", "sections/skills.html");
-loadSection("projects", "sections/projects.html");
-loadSection("experience", "sections/experience.html");
-loadSection("education", "sections/education.html");
-loadSection("contact", "sections/contact.html");
+async function initSections() {
+    await Promise.all([
+        loadSection("home", "sections/home.html"),
+        loadSection("about", "sections/about.html"),
+        loadSection("skills", "sections/skills.html"),
+        loadSection("projects", "sections/projects.html"),
+        loadSection("experience", "sections/experience.html"),
+        loadSection("education", "sections/education.html"),
+        loadSection("contact", "sections/contact.html")
+    ]);
+}
+
+initSections();
